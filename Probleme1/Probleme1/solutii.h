@@ -53,7 +53,13 @@ Ex:
 void solutia3() {
 
 
+	int dim = 5;
+	int v[100] = { 7, 4, 9, 6, 2 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
 
+	list.setPoz(list.pozUitlimPrim(dim), 0);
+	list.afisare();
 }
 
 /*#4382

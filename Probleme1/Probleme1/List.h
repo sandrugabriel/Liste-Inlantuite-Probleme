@@ -297,7 +297,32 @@ public:
 		return ct;
 	}
 
+	bool prim(int nr) {
 
+		if (nr == 0 || nr == 1)
+			return false;
+
+		for (int i = 2; i <= nr / 2; i++)
+			if (nr % i == 0)
+				return false;
+
+		return true;
+	}
+
+	int pozUitlimPrim(int dim) {
+
+		Node* aux = head;
+		int poz = 0;
+		for (int i = 0; i < dim; i++) {
+
+			if (prim(aux->getData()))
+				poz = i;
+
+			aux = aux->getNext();
+		}
+
+		return poz;
+	}
 
 };
 
