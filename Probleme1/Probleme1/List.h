@@ -485,7 +485,6 @@ public:
 		return poz;
 	}
 
-
 	int sumaInterval(int dim, int primPar, int ultimPar) {
 
 
@@ -502,7 +501,163 @@ public:
 		return s;
 	}
 
+	int mediaAritmetica(int dim) {
 
+		Node* aux = head;
+
+		int s=0;
+		
+		for (int i = 0; i < dim; i++) {
+			s += aux->getData();
+			aux = aux->getNext();
+		}
+
+		return s / size();
+	}
+
+	int ctmediaArit(int dim) {
+
+		Node* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (mediaAritmetica(dim) < aux->getData())
+				ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+
+	}
+
+	void nextI(int i, Node* aux) {
+
+		int ct = 0;
+		
+		while (ct<i)
+		{
+			aux = aux->getNext();
+			ct++;
+		}
+
+	}
+
+	int ctPerechiCifZeci(int dim) {
+
+		Node* aux = head;
+		Node* nou = head;
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			nou = head;
+				nextI(i+1, nou);
+
+				for (int j = 0; j < dim; j++) {
+
+					if ((nou->getData() != aux->getData()) && ((nou->getData() / 10) % 10 == (aux->getData() / 10) % 10)) {
+						ct++;
+					}
+
+					if (nou->getNext() == NULL) {
+						j = dim;
+						break;
+					}
+					nou = nou->getNext();
+				}
+
+			aux = aux->getNext();
+		}
+
+		return ct/2;
+
+
+	}
+
+	int sumaCif(int nr) {
+
+		int s = 0;
+
+		while (nr!=0)
+		{
+			int c = nr % 10;
+			s += c;
+			nr /= 10;
+		}
+
+		return s;
+	}
+
+	int ctPerechiSumEgal(int dim) {
+
+		Node* aux = head;
+		Node* nou = head;
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			nou = head;
+			nextI(i + 1, nou);
+
+			for (int j = 0; j < dim; j++) {
+
+				if ((nou->getData() != aux->getData()) && (sumaCif(nou->getData()) == sumaCif(aux->getData()))) {
+					ct++;
+				}
+
+				if (nou->getNext() == NULL) {
+					j = dim;
+					break;
+				}
+				nou = nou->getNext();
+			}
+
+			aux = aux->getNext();
+		}
+
+		return ct / 2;
+
+
+	}
+
+	/*void addPrime() {
+
+		Node* x = head;
+		Node* nou = head;
+		int dim = 0;
+
+		while (x != NULL)
+		{
+			if (prim(x->getData())) {
+			
+
+				if (nou == NULL) {
+
+					nou = new Node();
+
+					nou->setNext(NULL);
+					nou->setData(x->getData());
+				}
+				else {
+					Node* nou1 = new Node();
+					nou1->setNext(nou);
+					nou1->setData(x->getData());
+					nou = nou1;
+
+				}
+
+
+			}
+
+
+
+			dim++;
+			x = x->getNext();
+		}
+
+
+
+	}*/
 
 };
 
