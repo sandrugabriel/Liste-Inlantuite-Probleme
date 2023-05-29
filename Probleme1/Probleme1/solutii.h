@@ -31,6 +31,16 @@ Ex:
 void solutia2() {
 
 
+	int dim = 5;
+	int v[100] = { 15, 245, 28, 33, 11 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+	int ctpar = list.ctPar();
+	int ctimpar = list.ctImpar();
+	if (ctpar > ctimpar)
+		cout << ctpar - ctimpar;
+	else
+		cout << ctimpar - ctpar;
 
 }
 

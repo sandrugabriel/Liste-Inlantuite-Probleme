@@ -257,6 +257,45 @@ public:
 		return maxi;
 	}
 
+	int ctPar() {
+
+		Node* aux = head;
+		int ct = 0;
+
+		if (aux->getData() % 2 == 0)
+			ct++;
+
+		while (aux->getNext() != NULL)
+		{
+			if (aux->getNext()->getData() % 2 == 0)
+				ct++;
+
+			aux = aux->getNext();
+
+		}
+
+		return ct;
+	}
+
+	int ctImpar() {
+
+		Node* aux = head;
+		int ct = 0;
+
+		if (aux->getData() % 2 != 0)
+			ct++;
+
+		while (aux->getNext() != NULL)
+		{
+			if (aux->getNext()->getData() % 2 != 0)
+				ct++;
+
+			aux = aux->getNext();
+
+		}
+
+		return ct;
+	}
 
 
 
