@@ -324,6 +324,22 @@ public:
 		return poz;
 	}
 
+	void inlocuirePrim(int dim) {
+
+		Node* aux = head;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (prim(aux->getData()))
+				setPoz(i, 0);
+
+			aux = aux->getNext();
+		}
+
+
+
+	}
+
 };
 
 

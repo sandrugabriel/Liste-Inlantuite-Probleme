@@ -71,6 +71,13 @@ Ex:
 se va afisa 0 4 9 6 0*/
 void solutia4() {
 
+	int dim = 5;
+	int v[100] = { 7, 4, 9, 6, 2 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	list.inlocuirePrim(dim);
+	list.afisare();
 
 }
 
