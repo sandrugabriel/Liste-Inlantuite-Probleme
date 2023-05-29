@@ -242,7 +242,7 @@ public:
 
 	}
 
-	int maxiPret(int dim) {
+	int maxi(int dim) {
 		Node* aux = head;
 		int maxi = -1;
 
@@ -255,6 +255,21 @@ public:
 		}
 
 		return maxi;
+	}
+
+	int mini(int dim) {
+		Node* aux = head;
+		int mini = 99999;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData() < mini)
+				mini = aux->getData();
+
+			aux = aux->getNext();
+		}
+
+		return mini;
 	}
 
 	int ctPar() {
