@@ -83,10 +83,18 @@ void solutia4() {
 
 /*#486
 Să se determine maximul şi minimul valorilor elementelor unui vector.
+5
+7 4 9 6 2
+se va afisa 9 2
 */
 void solutia5() {
 
+	int dim = 5;
+	int v[100] = { 7, 4, 9, 6, 2 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
 
+	cout << list.maxi(dim) << " " << list.mini(dim);
 
 }
 
