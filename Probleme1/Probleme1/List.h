@@ -355,6 +355,155 @@ public:
 
 	}
 
+	void afisareMultipUltim(int dim) {
+
+
+		Node* aux = head;
+		Node* ultim = head;
+
+		while (ultim->getNext() != NULL)
+		{
+			ultim = ultim->getNext();
+		}
+
+		int nrUltim = ultim->getData();
+
+		while (aux != NULL)
+		{
+			if (aux->getData() % nrUltim == 0)
+				cout << aux->getData() << " ";
+			aux = aux->getNext();
+		}
+
+	}
+
+	int pozmaxi(int dim) {
+		Node* aux = head;
+		int maxi = -1;
+		int poz = 0;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData() > maxi){ 
+				maxi = aux->getData();
+				poz = i;
+			}
+
+			aux = aux->getNext();
+		}
+
+		return poz;
+	}
+
+	int pozmini(int dim) {
+		Node* aux = head;
+		int mini = 99999;
+		int poz = 0;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData() < mini) {
+				mini = aux->getData();
+				poz = i;
+			}
+
+			aux = aux->getNext();
+		}
+
+		return poz;
+	}
+
+	int difMaxiMini(int dim) {
+	
+		return maxi(dim) - mini(dim);
+	}
+
+	int ctEgalDif(int dim, int dif) {
+
+		Node* aux = head;
+		int ct = 0;
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData() == dif)
+				ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+
+	}
+
+	void afisareInterval(int dim, int pozMaxi, int pozMini) {
+
+		Node* aux = head;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (pozMaxi > pozMini) {
+				int aux = pozMaxi;
+				pozMaxi = pozMini;
+				pozMini = aux;
+			}
+			if (i >= pozMaxi && i <= pozMini)
+				cout << aux->getData() << " ";
+			aux = aux->getNext();
+		}
+
+	}
+
+	int primPar(int dim) {
+
+		Node* aux = head;
+		int poz = 0;
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData() % 2 == 0) {
+				poz = i;
+				return poz;
+			}
+
+
+			aux = aux->getNext();
+		}
+
+		return -1;
+	}
+
+	int ultimPar(int dim) {
+
+		Node* aux = head;
+		int poz = 0;
+		for (int i = 0; i < dim; i++) {
+
+			if (aux->getData()%2==0)
+				poz = i;
+
+			aux = aux->getNext();
+		}
+
+		return poz;
+	}
+
+
+	int sumaInterval(int dim, int primPar, int ultimPar) {
+
+
+		Node* aux = head;
+		int s = 0;
+		for (int i = 0; i < dim; i++) {
+
+			if (i >= primPar && i <= ultimPar)
+				s += aux->getData();
+
+			aux = aux->getNext();
+		}
+
+		return s;
+	}
+
+
+
 };
 
 
