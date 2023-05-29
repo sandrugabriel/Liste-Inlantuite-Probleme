@@ -45,7 +45,7 @@ public:
 		while (aux != NULL)
 		{
 
-			cout << aux->getData();
+			cout << aux->getData()<<" ";
 			aux = aux->getNext();
 		}
 
