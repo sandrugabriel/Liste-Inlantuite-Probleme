@@ -1,11 +1,5 @@
-#pragma once
+﻿#pragma once
 #include "List.h"
-
-
-
-
-
-
 
 
 
