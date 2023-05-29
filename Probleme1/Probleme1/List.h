@@ -257,8 +257,88 @@ public:
 		return maxi;
 	}
 
+	int ctPar() {
+
+		Node* aux = head;
+		int ct = 0;
+
+		if (aux->getData() % 2 == 0)
+			ct++;
+
+		while (aux->getNext() != NULL)
+		{
+			if (aux->getNext()->getData() % 2 == 0)
+				ct++;
+
+			aux = aux->getNext();
+
+		}
+
+		return ct;
+	}
+
+	int ctImpar() {
+
+		Node* aux = head;
+		int ct = 0;
+
+		if (aux->getData() % 2 != 0)
+			ct++;
+
+		while (aux->getNext() != NULL)
+		{
+			if (aux->getNext()->getData() % 2 != 0)
+				ct++;
+
+			aux = aux->getNext();
+
+		}
+
+		return ct;
+	}
+
+	bool prim(int nr) {
+
+		if (nr == 0 || nr == 1)
+			return false;
+
+		for (int i = 2; i <= nr / 2; i++)
+			if (nr % i == 0)
+				return false;
+
+		return true;
+	}
+
+	int pozUitlimPrim(int dim) {
+
+		Node* aux = head;
+		int poz = 0;
+		for (int i = 0; i < dim; i++) {
+
+			if (prim(aux->getData()))
+				poz = i;
+
+			aux = aux->getNext();
+		}
+
+		return poz;
+	}
+
+	void inlocuirePrim(int dim) {
+
+		Node* aux = head;
+
+		for (int i = 0; i < dim; i++) {
+
+			if (prim(aux->getData()))
+				setPoz(i, 0);
+
+			aux = aux->getNext();
+		}
 
 
+
+	}
 
 };
 

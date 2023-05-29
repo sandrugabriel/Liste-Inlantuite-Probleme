@@ -31,6 +31,16 @@ Ex:
 void solutia2() {
 
 
+	int dim = 5;
+	int v[100] = { 15, 245, 28, 33, 11 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+	int ctpar = list.ctPar();
+	int ctimpar = list.ctImpar();
+	if (ctpar > ctimpar)
+		cout << ctpar - ctimpar;
+	else
+		cout << ctimpar - ctpar;
 
 }
 
@@ -43,7 +53,13 @@ Ex:
 void solutia3() {
 
 
+	int dim = 5;
+	int v[100] = { 7, 4, 9, 6, 2 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
 
+	list.setPoz(list.pozUitlimPrim(dim), 0);
+	list.afisare();
 }
 
 /*#4382
@@ -55,6 +71,13 @@ Ex:
 se va afisa 0 4 9 6 0*/
 void solutia4() {
 
+	int dim = 5;
+	int v[100] = { 7, 4, 9, 6, 2 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	list.inlocuirePrim(dim);
+	list.afisare();
 
 }
 
