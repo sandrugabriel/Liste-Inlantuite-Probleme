@@ -5,7 +5,7 @@
 
 int main()
 {
-	solutia15();
+	solutia18();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
