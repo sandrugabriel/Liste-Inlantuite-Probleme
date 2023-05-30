@@ -1,5 +1,6 @@
 #pragma once
 #include "Node.h"
+#include <math.h>
 
 using namespace std;
 
@@ -790,7 +791,126 @@ public:
 		return ct;
 	}
 
+	int ctEgalUiltim(int dim) {
 
+		Node* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() == getUltimulNr(dim))
+				ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+
+	}
+
+	int ctNrPrime(int dim) {
+
+		Node* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (prim(aux->getData()))
+				ct++;
+
+			aux = aux->getNext();
+		}
+
+		return ct;
+
+
+	}
+
+	int ctNr(int nr) {
+		int ct = 0;
+		while (nr!=0)
+		{
+			ct++;
+			nr /= 10;
+		}
+		return ct;
+	}
+
+	bool verifPatratPerfect(int nr) {
+
+		int ctnr = ctNr(nr);
+		if (ctnr > 2) {
+			nr = nr / pow(10, ctnr - 2);
+		}
+		
+		if (sqrt(nr) == (int)sqrt(nr)) 
+			return true;
+		
+		return false;
+	}
+
+	void afisarePatratPerf(int dim) {
+
+		Node* aux = head;
+
+		int ct = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (verifPatratPerfect(aux->getData()))
+				cout << aux->getData() << " ";
+				
+
+			aux = aux->getNext();
+		}
+
+
+	}
+
+	void afisareSumele(int dim) {
+
+		int ct = dim;
+		while (ct >= 1)
+		{
+
+			Node* aux = head;
+			int s = 0;
+			for (int i = 0; i < ct; i++) {
+
+				s += aux->getData();
+				aux = aux->getNext();
+			}
+			cout << s << endl;
+
+			ct--;
+		}
+		
+
+
+
+	}
+
+	int primulNr() {
+	
+		return head->getData();
+	}
+
+	int pozPrimaCif(int dim, int nr) {
+
+		Node* aux = head;
+
+		int poz = 0;
+
+		for (int i = 0; i < dim; i++) {
+			if (aux->getData() == nr )
+				poz = i+1;
+			
+
+
+			aux = aux->getNext();
+		}
+
+		return poz;	
+	}
 
 };
 
