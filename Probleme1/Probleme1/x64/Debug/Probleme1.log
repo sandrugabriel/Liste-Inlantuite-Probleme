@@ -1,2 +1,3 @@
 ﻿  Probleme1.cpp
+C:\Mycode\C++\Structuri de date\Probleme_PbInfo\Probleme1\Probleme1\List.h(843,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Probleme1.vcxproj -> C:\Mycode\C++\Structuri de date\Probleme_PbInfo\Probleme1\x64\Debug\Probleme1.exe
