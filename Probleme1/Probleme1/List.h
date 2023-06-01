@@ -621,44 +621,31 @@ public:
 
 	}
 
-	/*void addPrime() {
-
-		Node* x = head;
-		Node* nou = head;
-		int dim = 0;
-
-		while (x != NULL)
-		{
-			if (prim(x->getData())) {
-			
-
-				if (nou == NULL) {
-
-					nou = new Node();
-
-					nou->setNext(NULL);
-					nou->setData(x->getData());
-				}
-				else {
-					Node* nou1 = new Node();
-					nou1->setNext(nou);
-					nou1->setData(x->getData());
-					nou = nou1;
-
-				}
+	void addPrime(int dim, List list) {
 
 
+		for (int i = 0; i < dim; i++) {
+
+			if (prim(list.head->getData())) {
+				addStart(list.head->getData());
 			}
 
-
-
-			dim++;
-			x = x->getNext();
+			list.head = list.head->getNext();
 		}
 
+	}
 
+	void addRestulImp(int dim, List list) {
 
-	}*/
+		for (int i = 0; i < dim; i++) {
+			int nr = list.head->getData();
+			int sumacif = sumaCif(list.head->getData());
+			addEnd(nr % sumacif);
+
+			list.head = list.head->getNext();
+		}
+
+	}
 
 	int mediaAritNenule(int dim) {
 
@@ -1049,6 +1036,22 @@ public:
 
 		return numar_cautat;
 	}
+
+	int sumaPuteri(int dim, List list) {
+
+		Node* aux = head;
+		int s = 0;
+		for (int i = 0; i < dim; i++) {
+			//cout << pow(aux->getData(), list.head->getData())<<endl;
+			s += pow(list.head->getData(), aux->getData());
+
+			aux = aux->getNext();
+			list.head = list.head->getNext();
+		}
+
+		return s;
+	}
+
 
 };
 

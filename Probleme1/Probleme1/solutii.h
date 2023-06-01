@@ -245,14 +245,17 @@ Ex:
 50 1815 15 289 35 40
 se afiseaza 0 0 3 4 3 0
 */
-//???????????
 void solutia14() {
 
-	int dim = 3;
-	int v[100] = { 51, 842, 15, 28, 77, 132 };
+	int dim = 6;
+	int v[100] = { 50, 1815, 15, 289 ,35, 40 };
 	for (int i = 0; i < dim; i++)
 		list.addEnd(v[i]);
 
+	List y;
+
+	y.addRestulImp(dim, list);
+	y.afisare();
 
 }
 
@@ -264,17 +267,15 @@ Ex:
 50 5 15 29 13 40
  se afiseaza 13 29 5
 */
-//?????
 void solutia15() {
 
 	int dim = 6;
 	int v[100] = { 50, 5, 15, 29 ,13, 40 };
 	for (int i = 0; i < dim; i++)
 		list.addEnd(v[i]);
-//	list.afisare();
 	List y;
 
-//	y.addPrime();
+	y.addPrime(dim,list);
 	y.afisare();
 }
 
@@ -527,7 +528,20 @@ Ex:
 1 2 3 4 5
 se afiseaza 8476
 */
-//?????????????????????????
+void solutia29() {
+
+	int dim = 5;
+	int v[100] = { 2, 3, 4, 5 ,6 };
+	for (int i = 0; i < dim; i++)
+		list.addEnd(v[i]);
+
+	List list2;
+	int v2[100] = {1,2,3,4,5 };
+	for (int i = 0; i < dim; i++)
+		list2.addEnd(v2[i]);
+
+	cout << list2.sumaPuteri(dim, list);
+}
 
 /*#
 Moş Crăciun s-a dus la Polul Nord Shopping City să cumpere n cadouri pentru copiii din întreaga lume. 
